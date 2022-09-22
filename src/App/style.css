@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bungee+Spice&family=Rubik+Dirt&display=swap');
 
 
 .content {
@@ -135,4 +135,34 @@ button {
     padding: 0 1vw;
     box-sizing: border-box;
     background-color: rgb(226, 226, 226);
+}
+
+.buttom-underline{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.buttom-underline div{
+    transition: 1000ms;
+    font-family: 'Rubik Dirt';
+    font-size: 5.5vh;
+}
+
+.buttom-underline div:hover{
+    font-size: 6vh;
+}
+
+.green {
+    color: green;
+    font-family: 'Rubik Dirt';
+    font-size: 6vh !important;
+}
+
+.red {
+    color: red;
+    font-family: 'Rubik Dirt';
+    font-size: 6vh !important;
 }
