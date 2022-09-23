@@ -247,7 +247,7 @@ button {
     .game-visual button {
         font-size: 3.7vw;
         width: 30vw;
-        height: 6vh;
+        height: 12vw;
         margin-top: 1vh;
     }
     
@@ -274,7 +274,7 @@ button {
     .guess button {
         font-size: 4.5vw;
         width: 30%;
-        height: 3vh;
+        height: 7vw;
         border-radius: 20px;
         background-color: rgb(253, 253, 253);
         -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, -17px 22px 25px 2px rgba(0, 0, 0, 0.42);
