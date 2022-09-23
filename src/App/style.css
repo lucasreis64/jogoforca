@@ -76,6 +76,8 @@ button {
     box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, -17px 22px 25px 2px rgba(0, 0, 0, 0.42);
 }
 
+
+
 .keyboard {
     display: flex;
     flex-wrap: wrap;
@@ -324,13 +326,13 @@ button {
     .green {
         color: green;
         font-family: 'Rubik Dirt';
-        font-size: 6vh !important;
+        font-size: 8vw !important;
     }
     
     .red {
         color: red;
         font-family: 'Rubik Dirt';
-        font-size: 6vh !important;
+        font-size: 8vw !important;
     }
 
     .selected {
