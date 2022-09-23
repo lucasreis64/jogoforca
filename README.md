@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+Deploy da página: [Jogo da Forca](https://jogo-da-forca.vercel.app/)
+
+Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
