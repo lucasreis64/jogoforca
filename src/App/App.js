@@ -30,7 +30,6 @@ function App () {
 
     let victory = 0;
     let error = 0,trueError=0;
-    const [selectedClass, setSelectedClass] = useState(false)
     
     function randomValue(min, max) {
         min = Math.ceil(min);
@@ -60,7 +59,8 @@ function App () {
     }
 
     function verifyEqualInput(inputs, arrOne) {
-        const inputArr = inputs.split('')
+        let inputArr = inputs.toLowerCase()
+        inputArr = inputArr.split('')
         let inputStr = arrOne.join('')
         let inputArrFormated = replaceAccent(inputStr)
 
@@ -107,8 +107,9 @@ function App () {
     
     function wordChooser () {
         selected = selected.map((s)=>s='')
-        gameStart=true;
+        gameStart=true
         trueError=0
+        setinputGuess('')
 
         setGibbet(<img src = {gibbetArr[trueError]} alt = ""/>)
         const random = randomValue (0, words.length)
