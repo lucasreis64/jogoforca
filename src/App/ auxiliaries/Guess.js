@@ -10,8 +10,8 @@ export default function Guess (props) {
     return (
         <GuessDiv>
                 <label>Já sei a palavra!</label>
-                <input value={props.inputGuess} onChange={props.atribuirValor} onKeyDown={verifyEnter}/>
-                <button onClick={(props.gameStart===true)?()=>props.verifyEqualInput(props.inputGuess, props.chosenOne):()=>console.log(props.gameStart)}>Chutar</button>
+                <input value={(props.inputState?props.inputGuess:'')} onChange={props.atribuirValor} onKeyDown={verifyEnter}/>
+                <button onClick={(props.inputState)?()=>props.verifyEqualInput(props.inputGuess, props.chosenOne):()=>console.log(props.gameStart)}>Chutar</button>
         </GuessDiv>
     )
 }

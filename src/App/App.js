@@ -27,6 +27,7 @@ function App () {
     const [gibbet, setGibbet] = useState(<img src = {forca0} alt = ""/>)
     const gibbetArr = [forca0,forca1,forca2,forca3,forca4,forca5,forca6]
     const [inputGuess, setinputGuess] = useState("");
+    const [inputState, setInputState] = useState(false);
 
     let victory = 0;
     let error = 0,trueError=0;
@@ -71,7 +72,8 @@ function App () {
         if(victory===inputArr.length && inputs!==''){
             setButtonUnderline(<div className = "buttom-underline"><button onClick={()=>wordChooser()}>Escolher palavra!</button><div className="green">{arrOne}</div></div>)
             setAlfabets(alfabet.map((a, index)=><keyboard-key key={index}>{a}</keyboard-key>))
-            setinputGuess('');
+            setinputGuess('')
+            setInputState(false)
         }
         else if (inputs===''){return}
         else{
@@ -79,6 +81,7 @@ function App () {
             setAlfabets(alfabet.map((a, index)=><keyboard-key key={index}>{a}</keyboard-key>))
             setGibbet(<img src = {gibbetArr[6]} alt = ""/>)
             setinputGuess('');
+            setInputState(false)
         }
     }
 
@@ -109,6 +112,7 @@ function App () {
         selected = selected.map((s)=>s='')
         gameStart=true
         trueError=0
+        setInputState(true);
         setinputGuess('')
 
         setGibbet(<img src = {gibbetArr[trueError]} alt = ""/>)
@@ -131,7 +135,7 @@ function App () {
         <Content>
             <Game gibbet={gibbet} buttonUnderline={buttonUnderline}/>
             <Keyboard alfabets = {alfabets}/>
-            <Guess verifyEqualInput={verifyEqualInput} atribuirValor={atribuirValor} inputGuess={inputGuess} chosenOne={chosenOne} gameStart={gameStart}/>
+            <Guess verifyEqualInput={verifyEqualInput} atribuirValor={atribuirValor} inputState={inputState} inputGuess={inputGuess} chosenOne={chosenOne} gameStart={gameStart}/>
         </Content>
     )
 }
