@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export default function Keyboard (props) {
-
     return (
         <KeyboardDiv div>
                 {props.alfabets}
@@ -21,6 +20,7 @@ const KeyboardDiv = styled.div`
 
     keyboard-key {
         border-radius: 5px;
+        font-size: 3vw;
         width: 3.5vw;
         height: 3.5vw;
         border: 1px solid black;
@@ -33,6 +33,7 @@ const KeyboardDiv = styled.div`
 
     keyboard-key-selected{
         border-radius: 5px;
+        font-size: 3vw;
         width: 4vw;
         height: 4vw;
         background-color: black;

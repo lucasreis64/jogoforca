@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
+import styled from 'styled-components'
 import words from "./ auxiliaries/Words"
 import alfabet from "./ auxiliaries/Alfabet"
 import Guess from './ auxiliaries/Guess'
@@ -127,13 +128,29 @@ function App () {
     }
 
     return(
-        <div className="content">
+        <Content>
             <Game gibbet={gibbet} buttonUnderline={buttonUnderline}/>
             <Keyboard alfabets = {alfabets}/>
             <Guess verifyEqualInput={verifyEqualInput} atribuirValor={atribuirValor} inputGuess={inputGuess} chosenOne={chosenOne} gameStart={gameStart}/>
-        </div>
+        </Content>
     )
 }
 
 export default App
 
+const Content = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+    padding: 5%;
+    font-family: 'Bungee Spice';
+    font-size: 3vw;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+
+    button {
+    font-family: 'Bungee Spice';
+    transition: 400ms;
+    }
+`
