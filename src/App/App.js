@@ -14,7 +14,6 @@ import forca4 from "../images/forca4.png"
 import forca5 from "../images/forca5.png"
 import forca6 from "../images/forca6.png"
 
-import "./style.css"
 import "./reset.css"
 
 let gameStart=false;
