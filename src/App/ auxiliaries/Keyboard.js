@@ -63,6 +63,7 @@ const KeyboardDiv = styled.div`
             background-color: black;
             width: 7.5vw!important;
             height: 7.5vw!important;
+            font-size: 7vw;
         }
 
         keyboard-key:hover {
