@@ -1,10 +1,16 @@
 import styled from 'styled-components';
 
 export default function Guess (props) {
+    function verifyEnter (e) {
+        if(e.keyCode === 13){
+            props.verifyEqualInput(props.inputGuess, props.chosenOne)
+        }
+    }
+
     return (
         <GuessDiv>
                 <label>Já sei a palavra!</label>
-                <input value={props.inputGuess} onChange={props.atribuirValor}/>
+                <input value={props.inputGuess} onChange={props.atribuirValor} onKeyDown={verifyEnter}/>
                 <button onClick={(props.gameStart===true)?()=>props.verifyEqualInput(props.inputGuess, props.chosenOne):()=>console.log(props.gameStart)}>Chutar</button>
         </GuessDiv>
     )
@@ -40,7 +46,7 @@ const GuessDiv = styled.div`
         border: 0.3vh solid brown;
         border-radius: 20px;
         font-size: 3vw;
-        height: 4.5vh;
+        height: 6vh;
         width: 30vw;
         -webkit-box-shadow: 0px 3px 0px 2px rgba(0, 0, 0, 0.1), 0px 6px 0px 4px rgba(0, 0, 0, 0.1), 0px 9px 0px 6px rgba(0, 0, 0, 0.1), 0px 12px 0px 8px rgba(0, 0, 0, 0.1), 0px 15px 0px 10px rgba(0, 0, 0, 0.1), 0px 18px 0px 12px rgba(0, 0, 0, 0.1), 0px 21px 0px 14px rgba(0, 0, 0, 0.1), 0px 24px 0px 16px rgba(0, 0, 0, 0.1), 0px 27px 0px 18px rgba(0, 0, 0, 0.1), 0px 30px 0px 20px rgba(0, 0, 0, 0.1), inset 5px 5px 15px 5px rgba(7, 7, 7, 0);
         box-shadow: 0px 3px 0px 2px rgba(0, 0, 0, 0.1), 0px 6px 0px 4px rgba(0, 0, 0, 0.1), 0px 9px 0px 6px rgba(0, 0, 0, 0.1), 0px 12px 0px 8px rgba(0, 0, 0, 0.1), 0px 15px 0px 10px rgba(0, 0, 0, 0.1), 0px 18px 0px 12px rgba(0, 0, 0, 0.1), 0px 21px 0px 14px rgba(0, 0, 0, 0.1), 0px 24px 0px 16px rgba(0, 0, 0, 0.1), 0px 27px 0px 18px rgba(0, 0, 0, 0.1), 0px 30px 0px 20px rgba(0, 0, 0, 0.1), inset 5px 5px 15px 5px rgba(7, 7, 7, 0);
@@ -51,11 +57,6 @@ const GuessDiv = styled.div`
     }
     label:hover{
         font-size: 3.5vw;
-    }
-
-    input:hover{
-        height: 6vh;
-        font-size: 4vh;
     }
 
     button:hover{
