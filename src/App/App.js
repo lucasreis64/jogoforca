@@ -2,6 +2,9 @@
 import React, { useState } from 'react'
 import words from "./ auxiliaries/Words"
 import alfabet from "./ auxiliaries/Alfabet"
+import Guess from './ auxiliaries/Guess'
+import Game from './ auxiliaries/Game'
+import Keyboard from './ auxiliaries/Keyboard'
 import forca0 from "../images/forca0.png"
 import forca1 from "../images/forca1.png"
 import forca2 from "../images/forca2.png"
@@ -18,17 +21,16 @@ let chosenOne;
 let selected=[];
 alfabet.map((s, index)=>selected[index]='')
 
-function App () {console.log(selected)
-    const [alfabets, setAlfabets] = useState(alfabet.map((a, index)=><div key={index} className = "keyboard-key">{a}</div>))
+function App () {
+    const [alfabets, setAlfabets] = useState(alfabet.map((a, index)=><keyboard-key key={index}>{a}</keyboard-key>))
     const [buttonUnderline, setButtonUnderline] = useState(<button onClick={()=>wordChooser()}>Escolher palavra!</button>)
     const [gibbet, setGibbet] = useState(<img src = {forca0} alt = ""/>)
     const gibbetArr = [forca0,forca1,forca2,forca3,forca4,forca5,forca6]
-    const [inputButtom, setInputButtom] = useState(<button>Chutar</button>)
-    const [pesquisa, setPesquisa] = useState("");
+    const [inputGuess, setinputGuess] = useState("");
+
     let victory = 0;
     let error = 0,trueError=0;
-    
-    
+    const [selectedClass, setSelectedClass] = useState(false)
     
     function randomValue(min, max) {
         min = Math.ceil(min);
@@ -36,8 +38,7 @@ function App () {console.log(selected)
         return Math.floor(Math.random() * (max - min) + min);
     }
 
-    function replaceAccent (text)
-    {       
+    function replaceAccent (text) {       
         text = text.toLowerCase();                                                         
         text = text.replace(new RegExp('[ÁÀÂÃ]','gi'), 'a');
         text = text.replace(new RegExp('[ÉÈÊ]','gi'), 'e');
@@ -48,40 +49,36 @@ function App () {console.log(selected)
         return text;                 
     }
 
-    function verifyEqual(arrOne, arrTwo){
+    function verifyEqual(arrOne, arrTwo) {
         arrTwo.map((a,index)=>(a===arrOne[index])?victory++:true)
         if(victory===arrTwo.length){
             console.log('parabens')
             setButtonUnderline(<div className = "buttom-underline"><button onClick={()=>wordChooser()}>Escolher palavra!</button><div className="green">{arrTwo}</div></div>)
-            setAlfabets(alfabet.map((a, index)=><div key={index} className = "keyboard-key">{a}</div>))
-            setPesquisa('');
+            setAlfabets(alfabet.map((a, index)=><keyboard-key key={index}>{a}</keyboard-key>))
+            setinputGuess('');
         }
     }
 
     function verifyEqualInput(inputs, arrOne) {
-        console.log("arrOne",arrOne)
         const inputArr = inputs.split('')
         let inputStr = arrOne.join('')
-        console.log(inputStr)
-        console.log("inputArr",inputArr)
         let inputArrFormated = replaceAccent(inputStr)
+
         inputArrFormated = inputArrFormated.split('')
-        console.log(". . . ",inputArrFormated)
+
         inputArr.map((a,index)=>(a===arrOne[index]||a===inputArrFormated[index])?victory++:true)
-        console.log(victory)
+
         if(victory===inputArr.length && inputs!==''){
-            console.log('parabens')
             setButtonUnderline(<div className = "buttom-underline"><button onClick={()=>wordChooser()}>Escolher palavra!</button><div className="green">{arrOne}</div></div>)
-            setAlfabets(alfabet.map((a, index)=><div key={index} className = "keyboard-key">{a}</div>))
-            setPesquisa('');
+            setAlfabets(alfabet.map((a, index)=><keyboard-key key={index}>{a}</keyboard-key>))
+            setinputGuess('');
         }
         else if (inputs===''){return}
         else{
-            console.log('wasted')
             setButtonUnderline(<div className = "buttom-underline"><button onClick={()=>wordChooser()}>Escolher palavra!</button><div className="red">{arrOne}</div></div>)
-            setAlfabets(alfabet.map((a, index)=><div key={index} className = "keyboard-key">{a}</div>))
+            setAlfabets(alfabet.map((a, index)=><keyboard-key key={index}>{a}</keyboard-key>))
             setGibbet(<img src = {gibbetArr[6]} alt = ""/>)
-            setPesquisa('');
+            setinputGuess('');
         }
     }
 
@@ -89,64 +86,51 @@ function App () {console.log(selected)
         selected[idx]=alfabet[idx]
         victory = 0
         error = 0
-        console.log(alfabet[idx])
+
         const randomArrCopy = replaceAccent(str)
-        console.log(randomArrCopy)
         const randomArr = randomArrCopy.split('')
+
         randomArr.map((a, index)=>(a===alfabet[idx])?arr2[index]=arr[index]:error++)
+
         if (error<randomArr.length){error = 0} else {trueError++}
         setButtonUnderline(<div className = "buttom-underline"><button onClick={()=>wordChooser()}>Escolher palavra!</button><div>{arr2}</div></div>)
         setGibbet(<img src = {gibbetArr[trueError]} alt = ""/>)
-        setAlfabets(alfabet.map((a,index)=>(a===alfabet[idx]||a===selected[index])?<div key={index} className = "keyboard-key selected">{a}</div>:<div key={index} onClick={()=>selectedKey(index, arr, arr2, str)} className = "keyboard-key">{a}</div>))
-        console.log(arr2)
-        console.log(randomArr)
+        setAlfabets(alfabet.map((a,index)=>(a===alfabet[idx]||a===selected[index])?<keyboard-key-selected key={index}>{a}</keyboard-key-selected>:<keyboard-key key={index} onClick={()=>selectedKey(index, arr, arr2, str)}>{a}</keyboard-key>))
         verifyEqual(arr2,arr)
-        console.log(victory,arr2.length)
-        console.log("error",trueError)
 
         if(trueError===6){
-            console.log('wasted')
             setButtonUnderline(<div className = "buttom-underline"><button onClick={()=>wordChooser()}>Escolher palavra!</button><div className="red">{arr}</div></div>)
-            setAlfabets(alfabet.map((a, index)=><div key={index} className = "keyboard-key">{a}</div>))
-            setPesquisa('');
+            setAlfabets(alfabet.map((a, index)=><keyboard-key key={index}>{a}</keyboard-key>))
+            setinputGuess('');
         }
     }
     
     function wordChooser () {
         selected = selected.map((s)=>s='')
         gameStart=true;
-        console.log(gameStart)
         trueError=0
+
         setGibbet(<img src = {gibbetArr[trueError]} alt = ""/>)
         const random = randomValue (0, words.length)
-        console.log(random)
+
         const randomStr = words[random]
         chosenOne = randomStr.split('')
-        console.log("chosenOne ",chosenOne, "pesquisa ", pesquisa)
+        console.log(chosenOne)
         const underlineArr = chosenOne.map((u)=>u='_')
-        setInputButtom(<button onClick={()=>verifyEqualInput(pesquisa, chosenOne)}>Chutar</button>)
+
         setButtonUnderline(<div className = "buttom-underline"><button onClick={()=>wordChooser()}>Escolher palavra!</button><div>{underlineArr}</div></div>)
-        setAlfabets(alfabet.map((a, index)=><div key={index} onClick={()=>selectedKey(index, chosenOne,underlineArr, randomStr)} className = "keyboard-key">{a}</div>))
+        setAlfabets(alfabet.map((a, index)=><keyboard-key key={index} onClick={()=>selectedKey(index, chosenOne,underlineArr, randomStr)}>{a}</keyboard-key>))
     }
 
     function atribuirValor(e) {
-        setPesquisa(e.target.value)
+        setinputGuess(e.target.value)
     }
 
     return(
         <div className="content">
-            <div className="game-visual">
-                {gibbet}
-                {buttonUnderline} 
-            </div>
-            <div className="keyboard">
-                {alfabets}
-            </div>
-            <div className="guess">
-                <div class="label">Já sei a palavra!</div>
-                <input value={pesquisa} onChange={atribuirValor}/>
-                <button onClick={(gameStart===true)?()=>verifyEqualInput(pesquisa, chosenOne):()=>console.log(gameStart)}>Chutar</button>
-            </div>
+            <Game gibbet={gibbet} buttonUnderline={buttonUnderline}/>
+            <Keyboard alfabets = {alfabets}/>
+            <Guess verifyEqualInput={verifyEqualInput} atribuirValor={atribuirValor} inputGuess={inputGuess} chosenOne={chosenOne} gameStart={gameStart}/>
         </div>
     )
 }

@@ -24,30 +24,9 @@ button {
     height: 7vh;
 }
 
-.guess .label:hover{
-    font-size: 3.5vw;
-}
-
-.guess input:hover{
-    height: 6vh;
-    font-size: 4vh;
-}
-
-.guess button:hover{
-    font-size: 3.3vh;
-    width: 23%;
-    height: 5vh;
-}
-
 .game-visual img:hover{
     width: 22vw;
     height: 37vh;
-}
-
-
-.keyboard-key:hover {
-    width: 4vw;
-    height: 4vw;
 }
 
 .game-visual img {
@@ -74,69 +53,6 @@ button {
     background-color: rgb(253, 253, 253);
     -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, -17px 22px 25px 2px rgba(0, 0, 0, 0.42);
     box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, -17px 22px 25px 2px rgba(0, 0, 0, 0.42);
-}
-
-
-
-.keyboard {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    width: 60%;
-    gap: 1vh;
-}
-
-.keyboard-key {
-    border-radius: 5px;
-    width: 3.5vw;
-    height: 3.5vw;
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, -17px 22px 25px 2px rgba(0, 0, 0, 0.42);
-    box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, -17px 22px 25px 2px rgba(0, 0, 0, 0.42);
-}
-
-.guess {
-    margin: auto;
-    display: flex;
-    align-items: center;
-    gap: 5vw;
-    width: 80%;
-}
-
-.guess button {
-    font-size: 3vh;
-    width: 30%;
-    height: 4vh;
-    border-radius: 20px;
-    background-color: rgb(253, 253, 253);
-    -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, -17px 22px 25px 2px rgba(0, 0, 0, 0.42);
-    box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, -17px 22px 25px 2px rgba(0, 0, 0, 0.42);
-}
-
-.guess .label {
-    filter: drop-shadow(-18px 27px 63px #000);
-    text-shadow: 0.1em 0.2em 0.5em black;
-    width: 20vw
-
-}
-
-.guess input {
-    font-family: "Bungee spice";
-    text-shadow: -0.1em 0.18em 0.1em black;
-    border: 0.3vh solid brown;
-    border-radius: 20px;
-    font-size: 3vh;
-    height: 5vh;
-    width: 30vw;
-    -webkit-box-shadow: 0px 3px 0px 2px rgba(0, 0, 0, 0.1), 0px 6px 0px 4px rgba(0, 0, 0, 0.1), 0px 9px 0px 6px rgba(0, 0, 0, 0.1), 0px 12px 0px 8px rgba(0, 0, 0, 0.1), 0px 15px 0px 10px rgba(0, 0, 0, 0.1), 0px 18px 0px 12px rgba(0, 0, 0, 0.1), 0px 21px 0px 14px rgba(0, 0, 0, 0.1), 0px 24px 0px 16px rgba(0, 0, 0, 0.1), 0px 27px 0px 18px rgba(0, 0, 0, 0.1), 0px 30px 0px 20px rgba(0, 0, 0, 0.1), inset 5px 5px 15px 5px rgba(7, 7, 7, 0);
-    box-shadow: 0px 3px 0px 2px rgba(0, 0, 0, 0.1), 0px 6px 0px 4px rgba(0, 0, 0, 0.1), 0px 9px 0px 6px rgba(0, 0, 0, 0.1), 0px 12px 0px 8px rgba(0, 0, 0, 0.1), 0px 15px 0px 10px rgba(0, 0, 0, 0.1), 0px 18px 0px 12px rgba(0, 0, 0, 0.1), 0px 21px 0px 14px rgba(0, 0, 0, 0.1), 0px 24px 0px 16px rgba(0, 0, 0, 0.1), 0px 27px 0px 18px rgba(0, 0, 0, 0.1), 0px 30px 0px 20px rgba(0, 0, 0, 0.1), inset 5px 5px 15px 5px rgba(7, 7, 7, 0);
-    outline: none;
-    padding: 0 1vw;
-    box-sizing: border-box;
-    background-color: rgb(226, 226, 226);
 }
 
 .buttom-underline{
@@ -169,13 +85,6 @@ button {
     font-size: 6vh !important;
 }
 
-.selected {
-    background-color: black;
-    width: 5vw;
-    height: 5vw;
-}
-
-
 @media (max-width: 650px) { 
     .content {
         display: flex;
@@ -198,37 +107,27 @@ button {
         font-size: inherit;
         width: 35vw;
         height: 8vh;
-
     }
     
     .guess .label:hover{
         font-size: 3.5vw;
-
     }
     
     .guess input:hover{
         height: 4vh;
         width: 40%;
         font-size: 4vh;
-
     }
     
     .guess button:hover{
         font-size: inherit;
         width: inherit;
         height: inherit;
-
     }
     
     .game-visual img:hover{
         width: 50%;
         height: 50%;
-    }
-    
-    
-    .keyboard-key:hover {
-        width: 8vw;
-        height: 8vw;
     }
     
     .game-visual img {
@@ -251,59 +150,6 @@ button {
         width: 30vw;
         height: 12vw;
         margin-top: 1vh;
-    }
-    
-    .keyboard {
-        width: 80%;
-        gap: 1.5vh;
-    }
-    
-    .keyboard-key {
-        width: 7vw;
-        height: 7vw;
-        font-size: 7vw;
-    }
-    
-    .guess {
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 5vw;
-        width: 100%;
-    }
-    
-    .guess button {
-        font-size: 4.5vw;
-        width: 30%;
-        height: 7vw;
-        border-radius: 20px;
-        background-color: rgb(253, 253, 253);
-        -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, -17px 22px 25px 2px rgba(0, 0, 0, 0.42);
-        box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, -17px 22px 25px 2px rgba(0, 0, 0, 0.42);
-    }
-    
-    .guess .label {
-        filter: drop-shadow(-18px 27px 63px #000);
-        text-shadow: 0.1em 0.2em 0.5em black;
-        font-size: 4.3vw;
-    }
-    
-    .guess input {
-        margin-left: 3%;
-        font-family: "Bungee spice";
-        text-shadow: -0.1em 0.18em 0.1em black;
-        border: 0.3vh solid brown;
-        border-radius: 20px;
-        font-size: 3vw;
-        height: 3vh;
-        width: 30vw;
-        -webkit-box-shadow: 0px 3px 0px 2px rgba(0, 0, 0, 0.1), 0px 6px 0px 4px rgba(0, 0, 0, 0.1), 0px 9px 0px 6px rgba(0, 0, 0, 0.1), 0px 12px 0px 8px rgba(0, 0, 0, 0.1), 0px 15px 0px 10px rgba(0, 0, 0, 0.1), 0px 18px 0px 12px rgba(0, 0, 0, 0.1), 0px 21px 0px 14px rgba(0, 0, 0, 0.1), 0px 24px 0px 16px rgba(0, 0, 0, 0.1), 0px 27px 0px 18px rgba(0, 0, 0, 0.1), 0px 30px 0px 20px rgba(0, 0, 0, 0.1), inset 5px 5px 15px 5px rgba(7, 7, 7, 0);
-        box-shadow: 0px 3px 0px 2px rgba(0, 0, 0, 0.1), 0px 6px 0px 4px rgba(0, 0, 0, 0.1), 0px 9px 0px 6px rgba(0, 0, 0, 0.1), 0px 12px 0px 8px rgba(0, 0, 0, 0.1), 0px 15px 0px 10px rgba(0, 0, 0, 0.1), 0px 18px 0px 12px rgba(0, 0, 0, 0.1), 0px 21px 0px 14px rgba(0, 0, 0, 0.1), 0px 24px 0px 16px rgba(0, 0, 0, 0.1), 0px 27px 0px 18px rgba(0, 0, 0, 0.1), 0px 30px 0px 20px rgba(0, 0, 0, 0.1), inset 5px 5px 15px 5px rgba(7, 7, 7, 0);
-        outline: none;
-        padding: 0 1vw;
-        box-sizing: border-box;
-        background-color: rgb(226, 226, 226);
     }
     
     .buttom-underline{
@@ -333,11 +179,5 @@ button {
         color: red;
         font-family: 'Rubik Dirt';
         font-size: 8vw !important;
-    }
-
-    .selected {
-        background-color: black;
-        width: 7.5vw!important;
-        height: 7.5vw!important;
     }
 }
